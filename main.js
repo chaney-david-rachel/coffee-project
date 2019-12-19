@@ -8,13 +8,15 @@ function renderCoffee(coffee) {
 	html += '</li>';
 	return html;
 }
-// test for li click events
-// locate your element and add the Click Event Listener
+// click event generator for each list item
 document.getElementById("coffee").addEventListener("click",function(e) {
-	// e.target is our targetted element.
-	// try doing console.log(e.target.nodeName), it will result LI
-	if(e.target && e.target.nodeName == "LI") {
-		console.log(e.target.id + " was clicked");
+	// e.target is our targeted element.
+	if(e.target && e.target.nodeName === "LI") {
+		document.getElementById('coffee-info-div').innerHTML=
+			'<img src="'+coffees[e.target.id-1].img+'" alt="">'+
+			"<h1>"+coffees[e.target.id-1].name+"</h1>"+
+			'<p>'+coffees[e.target.id-1].flavorText+'</p>';
+		// console.log(e.target.id + " was clicked"); //displays which id was clicked
 	}
 });
 
@@ -65,28 +67,30 @@ function addToCoffees() {
 	customObject.id = coffees.length+1;
 	customObject.name = document.getElementById('custom-coffee-name').value;
 	customObject.roast = document.getElementById('custom-roast-selection').value;
+	customObject.img = 'https://picsum.photos/200';
+	customObject.flavorText = 'This is a coffee that you just added to our database. E-mail us at newCoffee@coffeeDB.net to tell us a bit about it!';
 	coffees.push(customObject);
 	document.getElementById('custom-coffee-name').value = '';
 }
 
 // COFFEE LIST
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
-	{id: 1, name: 'Light City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Light City.'},
-	{id: 2, name: 'Half City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Half City.'},
-	{id: 3, name: 'Cinnamon', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Cinnamon.'},
-	{id: 4, name: 'City', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about City.'},
-	{id: 5, name: 'American', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about American.'},
-	{id: 6, name: 'Breakfast', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Breakfast.'},
-	{id: 7, name: 'High', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about High.'},
-	{id: 8, name: 'Continental', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Continental.'},
-	{id: 9, name: 'New Orleans', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about New Orleans.'},
-	{id: 10, name: 'European', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about European.'},
-	{id: 11, name: 'Espresso', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Espresso.'},
-	{id: 12, name: 'Viennese', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Viennese.'},
-	{id: 13, name: 'Italian', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Italian.'},
-	{id: 14, name: 'French', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about French.'},
-];
+	var coffees = [
+		{id: 1, name: 'Light City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Light City.'},
+		{id: 2, name: 'Half City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Half City.'},
+		{id: 3, name: 'Cinnamon', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Cinnamon.'},
+		{id: 4, name: 'City', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about City.'},
+		{id: 5, name: 'American', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about American.'},
+		{id: 6, name: 'Breakfast', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Breakfast.'},
+		{id: 7, name: 'High', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about High.'},
+		{id: 8, name: 'Continental', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Continental.'},
+		{id: 9, name: 'New Orleans', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about New Orleans.'},
+		{id: 10, name: 'European', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about European.'},
+		{id: 11, name: 'Espresso', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Espresso.'},
+		{id: 12, name: 'Viennese', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Viennese.'},
+		{id: 13, name: 'Italian', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Italian.'},
+		{id: 14, name: 'French', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about French.'},
+	];
 
 // VARS FOR HTML
 var coffeeList = document.querySelector('#coffees'); //changed variable name to match ul

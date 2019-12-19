@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="main-container"> <!---main container for grid---->
-    <div id="title-div">
-    <h1>Coffee!</h1>
-    </div>
-<!--    CUSTOM COFFEE INPUT-->
-    <div id="custom-div"><!----custom and search bar div----->
-    <input type="text" placeholder="Name your coffee!" id="custom-coffee-name"/>
-    <form>
-        <label for="custom-roast-selection"></label>
-        <select id="custom-roast-selection">
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-    </form>
-    <input class="submit" type="submit" id="custom-submit"/>
-    </div>
-<!--SEARCH BAR-->
-    <div id="search-div">
-    <input type="text" placeholder="Search.." id="search-bar" onkeyup="searchCoffees()"/>
-    <input class="submit" type="submit" id="search-btn"/>
+	<div id="title-div">
+		<h1>Coffee!</h1>
+	</div>
+	<!--    CUSTOM COFFEE INPUT-->
+	<div id="custom-div"><!----custom and search bar div----->
+		<span style="font-size:12px">Is your favorite coffee missing? Add it here!</span>
+		<input type="text" placeholder="Name your coffee!" id="custom-coffee-name"/>
+		<form>
+			<label for="custom-roast-selection"></label>
+			<select id="custom-roast-selection">
+				<option>light</option>
+				<option>medium</option>
+				<option>dark</option>
+			</select>
+		</form>
+		<input class="submit" type="submit" id="custom-submit"/>
+	</div>
+	<!--SEARCH BAR-->
+	<div id="search-div">
+		<input type="text" placeholder="Search.." id="search-bar" onkeyup="searchCoffees()"/>
+		<input class="submit" type="submit" id="search-btn"/>
 
-<!--    ROAST SELECTION-->
-    <form>
-        <label for="roast-selection"></label>
-        <select id="roast-selection">
-            <option>all</option> default option
-            <option>light</option>
-            <option>medium</option>
-            <option>dark</option>
-        </select>
-    </form>
-    <input type="submit" id="roast-submit"/>
-    </div><!----custom and search bar div---->
+		<!--    ROAST SELECTION-->
+		<form>
+			<label for="roast-selection"></label>
+			<select id="roast-selection">
+				<option>all</option>
+				//default option
+				<option>light</option>
+				<option>medium</option>
+				<option>dark</option>
+			</select>
+		</form>
+		<input type="submit" id="roast-submit"/>
+	</div><!----custom and search bar div---->
 
-    <div id="coffee-list-div">
-    <ul id="coffee">
-<!--        Coffee name and roast added in renderCoffee()-->
-        <div id="coffees"></div>
-    </ul>
-    </div>
-    <div id="coffee-info-div">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est fuga itaque iure mollitia perferendis provident tempore voluptates. Aliquam, dolore, ducimus!</p>
-    </div>
+	<div id="coffee-list-div">
+		<ul id="coffee">
+			<!--        Coffee name and roast added in renderCoffee()-->
+			<div id="coffees"></div>
+		</ul>
+	</div>
+	<div id="coffee-info-div">
+		<p>Hi, and welcome to our coffee site! Pick a coffee on the left for more info.</p>
+	</div>
+	<img src="" alt="">
 </div> <!-----main container close for grid----->
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
