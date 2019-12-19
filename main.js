@@ -2,12 +2,21 @@
 
 // CONSTRUCTS COFFEE LIST
 function renderCoffee(coffee) {
-	var html = '<ul id="coffee">';
-	html += '<li><h2>' + coffee.name + '</h2>'
-		+ '<p>' + coffee.roast + '</p>' + '</li>';
-	html += '</ul>';
+	var html = '<li id='+coffee.id+'>';
+	html += '<h2>' + coffee.name + '</h2>'
+		+ '<p>' + coffee.roast +'</p>';
+	html += '</li>';
 	return html;
 }
+// test for li click events
+// locate your element and add the Click Event Listener
+document.getElementById("coffee").addEventListener("click",function(e) {
+	// e.target is our targetted element.
+	// try doing console.log(e.target.nodeName), it will result LI
+	if(e.target && e.target.nodeName == "LI") {
+		console.log(e.target.id + " was clicked");
+	}
+});
 
 // SORTS LIST
 function renderCoffees(coffees) {
@@ -63,20 +72,20 @@ function addToCoffees() {
 // COFFEE LIST
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
-	{id: 1, name: 'Light City', roast: 'light'},
-	{id: 2, name: 'Half City', roast: 'light'},
-	{id: 3, name: 'Cinnamon', roast: 'light'},
-	{id: 4, name: 'City', roast: 'medium'},
-	{id: 5, name: 'American', roast: 'medium'},
-	{id: 6, name: 'Breakfast', roast: 'medium'},
-	{id: 7, name: 'High', roast: 'dark'},
-	{id: 8, name: 'Continental', roast: 'dark'},
-	{id: 9, name: 'New Orleans', roast: 'dark'},
-	{id: 10, name: 'European', roast: 'dark'},
-	{id: 11, name: 'Espresso', roast: 'dark'},
-	{id: 12, name: 'Viennese', roast: 'dark'},
-	{id: 13, name: 'Italian', roast: 'dark'},
-	{id: 14, name: 'French', roast: 'dark'},
+	{id: 1, name: 'Light City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Light City.'},
+	{id: 2, name: 'Half City', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Half City.'},
+	{id: 3, name: 'Cinnamon', roast: 'light', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Cinnamon.'},
+	{id: 4, name: 'City', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about City.'},
+	{id: 5, name: 'American', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about American.'},
+	{id: 6, name: 'Breakfast', roast: 'medium', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Breakfast.'},
+	{id: 7, name: 'High', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about High.'},
+	{id: 8, name: 'Continental', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Continental.'},
+	{id: 9, name: 'New Orleans', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about New Orleans.'},
+	{id: 10, name: 'European', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about European.'},
+	{id: 11, name: 'Espresso', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Espresso.'},
+	{id: 12, name: 'Viennese', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Viennese.'},
+	{id: 13, name: 'Italian', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about Italian.'},
+	{id: 14, name: 'French', roast: 'dark', img:'https://picsum.photos/200', flavorText: 'This is a sentence about French.'},
 ];
 
 // VARS FOR HTML
