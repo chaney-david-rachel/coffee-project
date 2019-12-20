@@ -162,5 +162,6 @@ submitButton.addEventListener('click', updateCoffees);
 searchSubmit.addEventListener('click', searchCoffees);
 userInput.addEventListener("keyup", searchCoffees);
 customSubmit.addEventListener('click', addToCoffees);
+roastSelection.addEventListener("change", updateCoffees);
 
 // })();
