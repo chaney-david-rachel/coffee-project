@@ -12,7 +12,7 @@ function renderCoffee(coffee) {
 	return html;
 }
 
-//new event listener (didn't quite work right
+//new event listener (didn't quite work right)
 
 // document.addEventListener('DOMContentLoaded', function () {
 // 	var coffeeListItem = document.getElementsByClassName("coffee-list-item");
@@ -38,10 +38,17 @@ document.getElementById("coffee").addEventListener("click",function(e) {
 	// e.target is our targeted element.
 	if(e.target && e.target.nodeName === "LI") {
 		document.getElementById('coffee-info-div').innerHTML=
-			'<img src="'+coffees[e.target.id-1].img+'" alt="" style="width:250px;height:400px;">'+
+			'<img src="'+coffees[e.target.id-1].img+'" alt="" style="height:400px;">'+
 			"<h1>"+coffees[e.target.id-1].name+"</h1>"+
 			'<p>'+coffees[e.target.id-1].flavorText+'</p>';
-		console.log(e.target.id + " was clicked"); //displays which id was clicked
+		//second attempt to create tabs on click
+		if(document.getElementsByClassName("active-list-item").length===0){
+			document.getElementById(e.target.id).classList.add("active-list-item");
+		} else {
+			document.getElementsByClassName("active-list-item")[0].classList.remove("active-list-item");
+			document.getElementById(e.target.id).classList.add("active-list-item");
+		}
+		// console.log(e.target.id + " was clicked"); //displays which id was clicked
 	}
 });
 
@@ -92,7 +99,7 @@ function addToCoffees() {
 	customObject.id = coffees.length+1;
 	customObject.name = document.getElementById('custom-coffee-name').value;
 	customObject.roast = document.getElementById('custom-roast-selection').value;
-	customObject.img = 'https://picsum.photos/400';
+	customObject.img = 'https://picsum.photos/400/350';
 	customObject.flavorText = 'This is a coffee that you just added to our database. E-mail us at newCoffee@coffeeDB.net to tell us a bit about it!';
 	coffees.push(customObject);
 	document.getElementById('custom-coffee-name').value = '';
